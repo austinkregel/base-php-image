@@ -28,7 +28,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
-          context: ./docker/base
+          context: ./
           push: true
           tags: ghcr.io/austinkregel/base:${{ matrix.php_version }}
           build-args: |
