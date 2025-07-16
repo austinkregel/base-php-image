@@ -8,9 +8,9 @@ ARG WWWGROUP
 
 WORKDIR /var/www/html
 
-ENV DEBIAN_FRONTEND noninteractive
-ENV TZ UTC
-ENV WWWGROUP ${WWWGROUP:-1000}
+ENV DEBIAN_FRONTEND=noninteractive
+ENV TZ=UTC
+ENV WWWGROUP=${WWWGROUP:-1000}
 
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
@@ -24,7 +24,7 @@ RUN apt-get update \
     && echo "deb [signed-by=/etc/apt/keyrings/ppa_ondrej_php.gpg] https://ppa.launchpadcontent.net/ondrej/php/ubuntu noble main" > /etc/apt/sources.list.d/ppa_ondrej_php.list \
     && apt-get update
 
-RUN apt-get install -y php${PHP_VERSION}-cli php${PHP_VERSION}-dev php${PHP_VERSION}-sqlite3 php${PHP_VERSION}-gd php${PHP_VERSION}-imagick php${PHP_VERSION}-curl php${PHP_VERSION}-dom php${PHP_VERSION}-tokenizer php${PHP_VERSION}-xml php${PHP_VERSION}-zip php${PHP_VERSION}-bcmath php${PHP_VERSION}-soap php${PHP_VERSION}-intl php${PHP_VERSION}-readline php${PHP_VERSION}-ldap php${PHP_VERSION}-ssh2 php${PHP_VERSION}-mysqlphp${PHP_VERSION}-msgpack php${PHP_VERSION}-igbinary php${PHP_VERSION}-redis php${PHP_VERSION}-memcached php${PHP_VERSION}-pcov php${PHP_VERSION}-xdebug php${PHP_VERSION}-imap php${PHP_VERSION}-mbstring php${PHP_VERSION}-pdo php${PHP_VERSION}-yaml
+RUN apt-get install -y php${PHP_VERSION}-{cli,dev,sqlite3,gd,imagick,curl,tokenizer,xml,zip,bcmath,soap,intl,readline,ldap,ssh2,mysql,msgpack,igbinary,redis,memcached,pcov,xdebug,imap,mbstring,pdo,yaml}
 
  RUN curl -sLS https://getcomposer.org/installer | php -- --install-dir=/usr/bin/ --filename=composer \
     && apt-get update \
