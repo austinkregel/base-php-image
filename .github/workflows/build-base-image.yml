@@ -34,7 +34,6 @@ jobs:
           context: ./
           push: true
           tags: ghcr.io/austinkregel/base:${{ matrix.php_version }}
-          build-args: |
-            PHP_VERSION: ${{ matrix.php_version }}
+          build-args: PHP_VERSION: ${{ matrix.php_version }}
           pull: true
           no-cache: true
