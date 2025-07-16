@@ -9,6 +9,8 @@ TAG=$PHP_VERSION-$(git rev-parse HEAD | head -c 7)
 export WWWUSER=${WWWUSER:-$UID}
 export WWWGROUP=${WWWGROUP:-$(id -g)}
 
+echo "Building base image with PHP version: $PHP_VERSION"
+
 docker build \
     --build-arg WWWUSER=$WWWUSER \
     --build-arg WWWGROUP=$WWWGROUP \
