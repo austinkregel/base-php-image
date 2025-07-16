@@ -47,13 +47,14 @@ RUN apt-get install -y \
     php${PHP_VERSION}-redis \
     php${PHP_VERSION}-memcached \
     php${PHP_VERSION}-pcov \
-    php${PHP_VERSION}-xdebug \
     php${PHP_VERSION}-imap \
     php${PHP_VERSION}-mbstring \
     php${PHP_VERSION}-pdo \
     php${PHP_VERSION}-yaml
+
+RUN phpenmod mbstring 
     
- RUN curl -sLS https://getcomposer.org/installer | php -- --install-dir=/usr/bin/ --filename=composer \
+RUN curl -sLS https://getcomposer.org/installer | php -- --install-dir=/usr/bin/ --filename=composer \
     && apt-get update \
     && apt-get install -y yarn openssh-server \
     && apt-get install -y mysql-client cron \
