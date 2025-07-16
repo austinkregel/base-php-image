@@ -8,7 +8,6 @@ TAG=$PHP_VERSION-$(git rev-parse HEAD | head -c 7)
 
 export WWWUSER=${WWWUSER:-$UID}
 export WWWGROUP=${WWWGROUP:-$(id -g)}
-export PHP_VERSION=${PHP_VERSION:-8.2}
 
 docker build \
     --build-arg WWWUSER=$WWWUSER \
