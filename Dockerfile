@@ -25,7 +25,7 @@ RUN apt-get update \
     && echo "deb [signed-by=/etc/apt/keyrings/ppa_ondrej_php.gpg] https://ppa.launchpadcontent.net/ondrej/php/ubuntu noble main" > /etc/apt/sources.list.d/ppa_ondrej_php.list \
     && apt-get update
 
-RUN apt-get install -y php${PHP_VERSION}-{cli,dev,sqlite3,gd,imagick,curl,tokenizer,xml,zip,bcmath,soap,intl,readline,ldap,ssh2,mysql,msgpack,igbinary,redis,memcached,pcov,xdebug,imap,mbstring,pdo,yaml}
+RUN apt-get install -y "php$PHP_VERSION"-{cli,dev,sqlite3,gd,imagick,curl,tokenizer,xml,zip,bcmath,soap,intl,readline,ldap,ssh2,mysql,msgpack,igbinary,redis,memcached,pcov,xdebug,imap,mbstring,pdo,yaml}
 
  RUN curl -sLS https://getcomposer.org/installer | php -- --install-dir=/usr/bin/ --filename=composer \
     && apt-get update \
