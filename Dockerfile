@@ -12,8 +12,8 @@ RUN [ ! -e /usr/bin/php ] && ln -s /usr/bin/phpPHP_VERSION /usr/bin/php || true 
     [ ! -e /usr/bin/php-config ] && ln -s /usr/bin/php-configPHP_VERSION /usr/bin/php-config || true
 
 # Set build argument for group
-ARG APPGROUP=1337
-RUN addgroup -g "$APPGROUP" appuser && \
-    adduser -D -u 1337 -G appuser appuser
+#ARG APPGROUP=1337
+#RUN addgroup -g "$APPGROUP" appuser && \
+#    adduser -D -u 1337 -G appuser appuser
 
 CMD ["/bin/sh"]
